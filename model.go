@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	tea "github.com/charmbracelet/bubbletea"
 )
@@ -70,7 +71,28 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			} else {
 				m.completed[m.cursor] = struct{}{}
 			}
+		case "s":
+			return m, m.saveToFile
+		}
+	case savedMsg:
+		if msg.err != nil {
+			fmt.Printf("Alas, there's been an error: %v\n", msg.err)
+			return m, tea.Quit
 		}
 	}
 	return m, nil
+}
+
+func (m model) saveToFile() tea.Msg {
+	list := ""
+	for _, item := range m.items {
+		list += item + "\n"
+	}
+
+	err := os.WriteFile("shopping-list.txt", []byte(list), 0644)
+	return savedMsg{err}
+}
+
+type savedMsg struct {
+	err error
 }
