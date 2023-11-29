@@ -43,16 +43,20 @@ func (m model) View() string {
 		cursor := " "
 		if m.cursor == i {
 			cursor = ">"
+			choice = focussedStyle.Render(choice)
+		} else {
+			choice = unfocussedStyle.Render(choice)
 		}
 
 		checked := " "
 		if _, ok := m.completed[i]; ok {
-			checked = "x"
+			checked = completedStyle.Render("x")
 		}
 
 		output += fmt.Sprintf("%s [%s] %s\n", cursor, checked, choice)
 	}
 
+	output = appStyle.Render(output)
 	output += "\n" + m.help.View(m.keys)
 	return output
 }
