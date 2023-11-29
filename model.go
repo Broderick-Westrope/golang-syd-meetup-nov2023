@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/charmbracelet/bubbles/help"
+	"github.com/charmbracelet/bubbles/key"
 	tea "github.com/charmbracelet/bubbletea"
 )
 
@@ -11,6 +13,8 @@ type model struct {
 	items     []string
 	cursor    int
 	completed map[int]struct{}
+	keys      KeyMap
+	help      help.Model
 }
 
 func NewModel() model {
@@ -22,6 +26,8 @@ func NewModel() model {
 			"Gopher toy",
 		},
 		completed: make(map[int]struct{}),
+		keys:      NewKeyMap(),
+		help:      help.New(),
 	}
 }
 
@@ -47,32 +53,34 @@ func (m model) View() string {
 		output += fmt.Sprintf("%s [%s] %s\n", cursor, checked, choice)
 	}
 
-	output += "\nPress q to quit.\n"
+	output += "\n" + m.help.View(m.keys)
 	return output
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
-		switch msg.String() {
-		case "ctrl+c", "q":
+		switch {
+		case key.Matches(msg, m.keys.Quit):
 			return m, tea.Quit
-		case "up":
+		case key.Matches(msg, m.keys.Up):
 			if m.cursor > 0 {
 				m.cursor--
 			}
-		case "down":
+		case key.Matches(msg, m.keys.Down):
 			if m.cursor < len(m.items)-1 {
 				m.cursor++
 			}
-		case "enter":
+		case key.Matches(msg, m.keys.Submit):
 			if _, ok := m.completed[m.cursor]; ok {
 				delete(m.completed, m.cursor)
 			} else {
 				m.completed[m.cursor] = struct{}{}
 			}
-		case "s":
+		case key.Matches(msg, m.keys.Save):
 			return m, m.saveToFile
+		case key.Matches(msg, m.keys.Help):
+			m.help.ShowAll = !m.help.ShowAll
 		}
 	case savedMsg:
 		if msg.err != nil {
