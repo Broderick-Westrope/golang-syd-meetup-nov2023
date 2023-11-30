@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="@@base@@" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, height=device-height, initial-scale=1" />
+    <link rel="stylesheet" href="engine/main.css" />
+    <link rel="stylesheet" href="theme/basel.css" />
+    <link rel="stylesheet" href="engine/katex/katex.min.css" />
+    <!--<link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />-->
+    <style>
+    :root{
+--logo: ;
+--darkaccent1color: ;
+--lightaccent1color: ;
+--accent2: #43aa8b;
+--accent3: #f9c74f;
+--accent4: #90be6d;
+--accent5: #f8961e;
+--accent6: #577590;
+--lighttitletextcolor: #05afdb;
+--darktitletextcolor: #00bce2;
+--lightbodytextcolor: #FFF;
+--darkbodytextcolor: #000;
+--lightbackgroundcolor: #FFF;
+--darkbackgroundcolor: #000000;
+--bodyfont: Noto Serif;
+--titlefont: Noto Serif;
+} 
+
+    </style>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="engine/print.css"
+      media="print"
+    />
+  </head>
+
+  <body class="responsive">
+    <div class="reveal">
+      <div class="slides"><section class="variable-size-headings light cover-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-cover" style="width: 100%; font-size: 1rem;">
+        <div style=""><h1 id="frombackendtofrontend">From Backend to Frontend</h1>
+
+<h3 id="howtobuildatuiwithoutlosingyourcharm">How to Build a TUI Without Losing Your Charm</h3></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/scratch-ui.png" class=" size-contain position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/game-maker-studio-ui.png" class=" size-contain position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/unity-ui.png" class=" size-contain position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light grid-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-grid grid-items-3 media-grid" style="width: 100%; font-size: 1rem;">
+        <img src="images/Scratch-logo.png" class=" size-contain position-center-center" style=""><img src="images/game-maker-studio-logo.png" class=" size-contain position-center-center" style=""><img src="images/unity-logo.png" class=" size-contain position-center-center" style="">
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light v-split-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-v-split media-grid" style="width: 100%; font-size: 1rem;">
+        <img src="images/cli-tictactoe.png" class=" size-contain position-center-center" style="">
+        <img src="images/react-tictactoe.png" class=" size-contain position-center-center" style="">
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/charm-page.png" class=" position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light v-split-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-v-split media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><h2 id="terminal">Terminal</h2>
+
+<h2 id="user">User</h2>
+
+<h2 id="interface">Interface</h2></div>
+        <img src="images/lazygit.gif" class=" size-contain position-center-center" style="">
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/mancala-go.gif" class=" size-contain position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/nap.gif" class=" size-contain position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/tetrigo.gif" class=" size-contain position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light grid-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-grid grid-items-3 media-grid" style="width: 100%; font-size: 1rem;">
+        <img src="images/Clipboard_3.png" class=" size-contain position-center-center" style=""><img src="images/Clipboard_2.png" class=" size-contain position-center-center" style=""><img src="images/Clipboard_1.png" class=" size-contain position-center-center" style="">
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><h1 id="unidirectionaldataflow">Unidirectional Data Flow</h1>
+
+<div class="single-image-wrapper"><img src="images/draw-unidirectional-df.png" class=" size-contain position-center-center"></div></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light cover-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-cover" style="width: 100%; font-size: 1rem;">
+        <div style=""><h1 id="statemanagement">State Management</h1></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><p><strong>let's GO shopping!</strong></p>
+
+<div class="single-image-wrapper"><img src="images/shopping-demo-lipgloss.gif" class=" size-contain position-center-center"></div></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 1rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+    m := NewModel()
+    p := tea.NewProgram(m)
+    <span class="hljs-keyword">if</span> _, err := p.Run(); err != <span class="hljs-literal">nil</span> {
+        fmt.Printf(<span class="hljs-string">"Alas, there's been an error: %v"</span>, err)
+        os.Exit(<span class="hljs-number">1</span>)
+    }
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.859rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-keyword">package</span> tea
+
+<span class="hljs-keyword">type</span> Model <span class="hljs-keyword">interface</span> {
+    Init() Cmd
+
+    Update(Msg) (Model, Cmd)
+
+    View() <span class="hljs-keyword">string</span>
+}
+
+<span class="hljs-keyword">type</span> Cmd <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span> <span class="hljs-title">Msg</span></span>
+
+<span class="hljs-keyword">type</span> Msg <span class="hljs-keyword">interface</span>{}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 1rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-keyword">type</span> model <span class="hljs-keyword">struct</span> {
+    items     []<span class="hljs-keyword">string</span>
+    cursor    <span class="hljs-keyword">int</span>
+    completed <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">struct</span>{}
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.906rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewModel</span><span class="hljs-params">()</span> <span class="hljs-title">model</span></span> {
+    <span class="hljs-keyword">return</span> model{
+        items: []<span class="hljs-keyword">string</span>{
+            <span class="hljs-string">"Headphones"</span>,
+            <span class="hljs-string">"Lipgloss"</span>,
+            <span class="hljs-string">"Bubble tea"</span>,
+            <span class="hljs-string">"Gopher toy"</span>,
+        },
+        completed: <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">struct</span>{}),
+    }
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 1rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">Init</span><span class="hljs-params">()</span> <span class="hljs-title">tea</span>.<span class="hljs-title">Cmd</span></span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present fit-warning has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.531rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">View</span><span class="hljs-params">()</span> <span class="hljs-title">string</span></span> {
+    output := <span class="hljs-string">"What should we buy at the market?\n\n"</span>
+
+    <span class="hljs-keyword">for</span> i, choice := <span class="hljs-keyword">range</span> m.items {
+
+        cursor := <span class="hljs-string">" "</span>
+        <span class="hljs-keyword">if</span> m.cursor == i {
+            cursor = <span class="hljs-string">"&gt;"</span>
+        }
+
+        checked := <span class="hljs-string">" "</span>
+        <span class="hljs-keyword">if</span> _, ok := m.completed[i]; ok {
+            checked = <span class="hljs-string">"x"</span>
+        }
+
+        output += fmt.Sprintf(<span class="hljs-string">"%s [%s] %s\n"</span>, cursor, checked, choice)
+    }
+    
+    output += <span class="hljs-string">"\nPress q to quit.\n"</span>
+    <span class="hljs-keyword">return</span> output
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present fit-warning has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.578rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">Update</span><span class="hljs-params">(msg tea.Msg)</span> <span class="hljs-params">(tea.Model, tea.Cmd)</span></span> {
+    <span class="hljs-keyword">switch</span> msg := msg.(<span class="hljs-keyword">type</span>) {
+    <span class="hljs-keyword">case</span> tea.KeyMsg:
+        <span class="hljs-keyword">switch</span> msg.String() {
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"ctrl+c"</span>, <span class="hljs-string">"q"</span>:
+            <span class="hljs-keyword">return</span> m, tea.Quit
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"up"</span>:
+            <span class="hljs-keyword">if</span> m.cursor &gt; <span class="hljs-number">0</span> {  m.cursor--  }
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"down"</span>:
+            <span class="hljs-keyword">if</span> m.cursor &lt; <span class="hljs-built_in">len</span>(m.items)<span class="hljs-number">-1</span> {  m.cursor++  }
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"enter"</span>:
+            <span class="hljs-keyword">if</span> _, ok := m.completed[m.cursor]; ok {
+                <span class="hljs-built_in">delete</span>(m.completed, m.cursor)
+            } <span class="hljs-keyword">else</span> {
+                m.completed[m.cursor] = <span class="hljs-keyword">struct</span>{}{}
+            }           
+        }
+    }
+    <span class="hljs-keyword">return</span> m, <span class="hljs-literal">nil</span>
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><h1 id="checkpoint">Checkpoint</h1>
+
+<div class="single-image-wrapper"><img src="images/shopping-demo-basics.gif" class=" size-contain position-center-center"></div></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.813rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">saveToFile</span><span class="hljs-params">()</span> <span class="hljs-title">tea</span>.<span class="hljs-title">Msg</span></span> {
+    list := <span class="hljs-string">""</span>
+    <span class="hljs-keyword">for</span> _, item := <span class="hljs-keyword">range</span> m.items {
+        list += item + <span class="hljs-string">"\n"</span>
+    }
+
+    err := os.WriteFile(<span class="hljs-string">"shopping-list.txt"</span>, []<span class="hljs-keyword">byte</span>(list), <span class="hljs-number">0644</span>)
+    <span class="hljs-keyword">return</span> savedMsg{err}
+}
+
+<span class="hljs-keyword">type</span> savedMsg <span class="hljs-keyword">struct</span> {
+    err error
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present fit-warning has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.578rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">Update</span><span class="hljs-params">(msg tea.Msg)</span> <span class="hljs-params">(tea.Model, tea.Cmd)</span></span> {
+    <span class="hljs-keyword">switch</span> msg := msg.(<span class="hljs-keyword">type</span>) {
+    <span class="hljs-keyword">case</span> tea.KeyMsg:
+        <span class="hljs-keyword">switch</span> msg.String() {
+        ...
+        <span class="hljs-comment">// The "s" key saves the list to a file</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"s"</span>:
+            <span class="hljs-keyword">return</span> m, m.saveToFile
+        }
+    <span class="hljs-comment">// Is it a Message we're sending to ourselves to save the list?</span>
+    <span class="hljs-keyword">case</span> savedMsg:
+        <span class="hljs-keyword">if</span> msg.err != <span class="hljs-literal">nil</span> {
+            fmt.Printf(<span class="hljs-string">"Alas, there's been an error: %v\n"</span>, msg.err)
+            <span class="hljs-keyword">return</span> m, tea.Quit
+        }
+    }
+    <span class="hljs-keyword">return</span> m, <span class="hljs-literal">nil</span>
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><h1 id="checkpoint">Checkpoint</h1>
+
+<div class="single-image-wrapper"><img src="images/save-file-demo.gif" class=" size-contain position-center-center"></div></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light grid-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-grid grid-items-4 media-grid" style="width: 100%; font-size: 1rem;">
+        <img src="images/bubble-stopwatch.gif" class=" size-contain position-center-center" style=""><img src="images/bubble-file-picker.gif" class=" size-contain position-center-center" style=""><img src="images/bubble-viewport.gif" class=" size-contain position-center-center" style=""><img src="images/bubble-table.gif" class=" size-contain position-center-center" style="">
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/bubble-help.gif" class=" size-contain position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 1rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-keyword">type</span> KeyMap <span class="hljs-keyword">struct</span> {
+    Quit   key.Binding
+    Up     key.Binding
+    Down   key.Binding
+    Submit key.Binding
+    Save   key.Binding
+    Help   key.Binding
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.906rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewKeyMap</span><span class="hljs-params">()</span> <span class="hljs-title">KeyMap</span></span> {
+    <span class="hljs-keyword">return</span> KeyMap{
+        Quit:   key.NewBinding(
+            key.WithKeys(<span class="hljs-string">"q"</span>, <span class="hljs-string">"ctrl+c"</span>), 
+            key.WithHelp(<span class="hljs-string">"q"</span>, <span class="hljs-string">"quit"</span>)),
+        Up:     key.NewBinding(
+            key.WithKeys(<span class="hljs-string">"up"</span>), 
+            key.WithHelp(<span class="hljs-string">"up arrow"</span>, <span class="hljs-string">"up"</span>)),
+        ...
+    }
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.859rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-keyword">type</span> model <span class="hljs-keyword">struct</span> {
+    ...
+    keys     KeyMap
+    help     help.Model
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewModel</span><span class="hljs-params">()</span> <span class="hljs-title">model</span></span> {
+    <span class="hljs-keyword">return</span> model{
+        ...
+        keys: NewKeyMap(),
+        help: help.New(),
+    }
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light v-split-container present fit-warning has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-v-split" style="width: 100%; font-size: 0.766rem;">
+        <div style=""><h3 id="before">Before</h3>
+
+<pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">Update</span><span class="hljs-params">(msg tea.Msg)</span> <span class="hljs-params">(tea.Model, tea.Cmd)</span></span> {
+    <span class="hljs-keyword">switch</span> msg := msg.(<span class="hljs-keyword">type</span>) {
+    <span class="hljs-keyword">case</span> tea.KeyMsg:
+        <span class="hljs-keyword">switch</span> msg.String() {
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"ctrl+c"</span>, <span class="hljs-string">"q"</span>:
+            <span class="hljs-keyword">return</span> m, tea.Quit
+        ...
+        }
+    ...
+    }
+
+    <span class="hljs-keyword">return</span> m, <span class="hljs-literal">nil</span>
+}
+</code></pre></div>
+        <div style=""><h3 id="after">After</h3>
+
+<pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">Update</span><span class="hljs-params">(msg tea.Msg)</span> <span class="hljs-params">(tea.Model, tea.Cmd)</span></span> {
+    <span class="hljs-keyword">switch</span> msg := msg.(<span class="hljs-keyword">type</span>) {
+    <span class="hljs-keyword">case</span> tea.KeyMsg:
+        <span class="hljs-keyword">switch</span> {
+        <span class="hljs-keyword">case</span> key.Matches(msg, m.keys.Quit):
+            <span class="hljs-keyword">return</span> m, tea.Quit
+        ...
+        }
+    ...
+    }
+
+    <span class="hljs-keyword">return</span> m, <span class="hljs-literal">nil</span>
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.813rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">Update</span><span class="hljs-params">(msg tea.Msg)</span> <span class="hljs-params">(tea.Model, tea.Cmd)</span></span> {
+    <span class="hljs-keyword">switch</span> msg := msg.(<span class="hljs-keyword">type</span>) {
+    <span class="hljs-keyword">case</span> tea.KeyMsg:
+        <span class="hljs-keyword">switch</span> {
+        ...
+        <span class="hljs-keyword">case</span> key.Matches(msg, m.keys.Help):
+            m.help.ShowAll = !m.help.ShowAll
+        }
+    ...
+    }
+
+    <span class="hljs-keyword">return</span> m, <span class="hljs-literal">nil</span>
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present fit-warning has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.672rem;">
+        <div style=""><h3 id="before">Before</h3>
+
+<pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">View</span><span class="hljs-params">()</span> <span class="hljs-title">string</span></span> {
+    ...
+    output += <span class="hljs-string">"\nPress q to quit.\n"</span>
+    <span class="hljs-keyword">return</span> output
+}
+</code></pre>
+
+<h3 id="after">After</h3>
+
+<pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">View</span><span class="hljs-params">()</span> <span class="hljs-title">string</span></span> {
+    ...
+    output += <span class="hljs-string">"\n"</span> + m.help.View(m.keys)
+    <span class="hljs-keyword">return</span> output
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 1rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-keyword">type</span> KeyMap <span class="hljs-keyword">interface</span> {
+
+    ShortHelp() []key.Binding
+
+    FullHelp() [][]key.Binding
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.906rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(k KeyMap)</span> <span class="hljs-title">ShortHelp</span><span class="hljs-params">()</span> []<span class="hljs-title">key</span>.<span class="hljs-title">Binding</span></span> {
+    <span class="hljs-keyword">return</span> []key.Binding{k.Quit, k.Help}
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(k KeyMap)</span> <span class="hljs-title">FullHelp</span><span class="hljs-params">()</span> [][]<span class="hljs-title">key</span>.<span class="hljs-title">Binding</span></span> {
+    <span class="hljs-keyword">return</span> [][]key.Binding{
+        {k.Up, k.Down, k.Submit},
+        {k.Save, k.Help, k.Quit},
+    }
+}
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><h1 id="checkpoint">Checkpoint</h1>
+
+<div class="single-image-wrapper"><img src="images/bubbles-demo.gif" class=" size-contain position-center-center"></div></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/lipgloss-readme-example.png" class=" position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light default-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.906rem;">
+        <div style=""><pre><code class="go hljs"><span class="hljs-keyword">var</span> focussedStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(<span class="hljs-string">"#AFBEE1"</span>))
+
+<span class="hljs-keyword">var</span> unfocussedStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(<span class="hljs-string">"241"</span>))
+
+<span class="hljs-keyword">var</span> completedStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(<span class="hljs-string">"#15DA84"</span>))
+
+<span class="hljs-keyword">var</span> appStyle = lipgloss.NewStyle().Border(lipgloss.RoundedBorder(), <span class="hljs-literal">true</span>).Padding(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light default-container present fit-warning has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-default" style="width: 100%; font-size: 0.438rem;">
+        <div style=""><pre><code class="go hljs"> <span class="hljs-number">1.</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m model)</span> <span class="hljs-title">View</span><span class="hljs-params">()</span> <span class="hljs-title">string</span></span> {
+ <span class="hljs-number">2.</span>     output := <span class="hljs-string">"What should we buy at the market?\n\n"</span>
+ <span class="hljs-number">3.</span> 
+ <span class="hljs-number">4.</span>     <span class="hljs-keyword">for</span> i, choice := <span class="hljs-keyword">range</span> m.choices {
+ <span class="hljs-number">5.</span>         cursor := <span class="hljs-string">" "</span>
+ <span class="hljs-number">6.</span>         <span class="hljs-keyword">if</span> m.cursor == i {
+ <span class="hljs-number">7.</span>             cursor = <span class="hljs-string">"&gt;"</span>
+ <span class="hljs-number">8.</span>             choice = focussedStyle.Render(choice)
+ <span class="hljs-number">9.</span>         } <span class="hljs-keyword">else</span> {
+<span class="hljs-number">10.</span>             choice = unfocussedStyle.Render(choice)
+<span class="hljs-number">11.</span>         }
+<span class="hljs-number">12.</span> 
+<span class="hljs-number">13.</span>         checked := <span class="hljs-string">" "</span>
+<span class="hljs-number">14.</span>         <span class="hljs-keyword">if</span> _, ok := m.selected[i]; ok {
+<span class="hljs-number">15.</span>             checked = completedStyle.Render(<span class="hljs-string">"x"</span>)
+<span class="hljs-number">16.</span>         }
+<span class="hljs-number">17.</span> 
+<span class="hljs-number">18.</span>         output += fmt.Sprintf(<span class="hljs-string">"%s [%s] %s\n"</span>, cursor, checked, choice)
+<span class="hljs-number">19.</span>     }
+<span class="hljs-number">20.</span> 
+<span class="hljs-number">21.</span>     output = appStyle.Render(output)
+<span class="hljs-number">22.</span>     output += <span class="hljs-string">"\n"</span> + m.help.View(m.keys)
+<span class="hljs-number">23.</span>     <span class="hljs-keyword">return</span> output
+<span class="hljs-number">24.</span> }
+</code></pre></div>
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/shopping-demo-lipgloss.gif" class=" size-contain position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/lazygit.gif" class=" size-contain position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light full-image-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-full-image media-grid" style="width: 100%; font-size: 1rem;">
+        <div style=""><div class="single-image-wrapper"><img src="images/tetrigo.gif" class=" size-contain position-center-center"></div></div>
+        
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section><section class="variable-size-headings light grid-container present has-light-background fitted" data-updated="true" style="display: grid;">
+
+      <div class="header"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+      <div class="layout-grid grid-items-3 media-grid" style="width: 100%; font-size: 1rem;">
+        <img src="images/qr-tetrigo.png" class=" size-contain position-center-center" style=""><img src="images/qr-charm.png" class=" size-contain position-center-center" style=""><img src="images/qr-talk-repo.png" class=" size-contain position-center-center" style="">
+      </div>
+      <div class="footnotes"></div>
+      <div class="footer"><div class="leading"></div><div class="middle"></div><div class="trailing"></div></div>
+</section></div>
+    </div>
+    <script src="engine/index.js"></script>
+    <!--<script src="engine/d3v4.min.js" charset="utf-8"></script>
+    <script src="engine/charts.min.js" charset="utf-8"></script>
+    <script src="engine/billboard.min.js"></script>-->
+    <script src="engine/pptxgen.min.js"></script>
+                                                   <script src="engine/pfill.js"></script>
+    <script src="engine/published.js"></script>
+
+    <script>
+      Reveal.configure({
+        progress: true,
+        keyboard: true,
+        dependencies: [
+          {
+            src: "engine/highlight.js",
+            sync: true,
+            callback: function () {
+              hljs.initHighlightingOnLoad();
+            },
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>
